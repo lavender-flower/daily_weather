@@ -1,0 +1,194 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'Times',sans-serif;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+  }
+  
+  body {
+    margin: 0;
+    background: #222;
+  }
+
+  /* background design */
+  
+  .bg {
+    animation: slide 7s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, rgb(25, 31, 31) 50%, rgb(79, 79, 82) 50%);
+    bottom: 0;
+    left: -50%;
+    opacity: 0.5;
+    position: fixed;
+    right: -50%;
+    top: 0;
+    z-index: -1;
+  }
+  
+  .bg2 {
+    animation-direction: alternate-reverse;
+    animation-duration: 7s;
+  }
+  
+  .bg3 {
+    animation-duration: 7s;
+  }
+  
+  @keyframes slide {
+    90% {
+      transform: translateX(-25%);
+    }
+    0% {
+      transform: translateX(25%);
+    }
+  }
+/* search part design */
+
+.card{
+    width: 95%;
+    max-width:470px;
+    background-color: #7270aa;
+    background-image: linear-gradient(rgb(196, 154, 204),#7270aa);
+    color: #fff;
+    margin: 70px auto 0;
+    border-radius: 20px;
+    padding:40px 35px;
+    text-align: center;
+}
+
+.search{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.btn{
+    border: 0;
+    outline: 0;
+    background: #9c5a81;
+    color: #d1c7c7;
+    padding: 10px 25px;
+    height:60px;
+    border-radius: 30px;
+    flex: 1;
+    margin-right: 16px;
+    font-size: 18px;
+}
+
+.search input{
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    color: #555;
+    padding: 10px 25px;
+    height:60px;
+    border-radius: 30px;
+    flex: 1;
+    margin-right: 16px;
+    font-size: 18px;
+
+    
+}
+
+.coo{
+    text-align: center;
+    color: #d1c7c7;
+    padding-top: 30px;
+    font-size: large;
+    
+}
+
+.oo{
+    font-size: 35px;
+}
+
+.weather{
+    margin: 30px auto 0; 
+}
+
+.w{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    margin-left: 4px;
+}
+.p{
+
+    width: 30px;
+}
+.temp{
+    font-size: 45px;
+}
+
+.hu{
+    font-size: 20px;
+}
+.wind{
+    font-size: 20px;
+}
+.weather
+{
+    display: none;
+}
+
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* The actual popup */
+  .popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+  }
+  
+  /* Popup arrow */
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Toggle this class - hide and show the popup */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }

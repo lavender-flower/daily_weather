@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Weather</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- //for background -->
+
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+
+<div class="coo">
+    <h1>DAILY WEATHER</h1>
+</div>
+
+<!-- //weather search design -->
+
+    <div class="card">
+        <div class="search">
+            <input types="text" placeholder="Enter city name" spellcheck="false">
+            <button class="btn">Search</button>
+
+
+        </div>
+
+        <div class="weather">
+            <img src="images/cloud.png" class="w-icon">
+            <p class="oo"> Cloudy</p>
+           
+             
+              
+        
+         <div class="w">
+            <div>
+            
+                <h1 class="temp">32°C</h1>
+                <small class="feellike">feels like 35</small><small>°C </small><br>
+                
+                <h2 class="city">Dhaka</h2>
+                <h3 class="coun">Bangladesh</h3>
+                
+               
+           </div>
+           <div class="hu-air">
+            <div class="w">
+                <img class="p" src="images/today.png">
+                <small class="time"> 2024-10-15 11:56</small>
+            </div>
+         
+            <div class="w">
+                <img class="p" src="images/air.png">
+              <small> Wind <small class="wind"> 15 </small> km/h</small>
+            </div>
+            <div class="w">
+                <img class="p" src="images/humadity.png">
+                <small>Humidity <small class="hu">50</small> %</small>
+            </div>
+           </div>
+
+         </div>
+
+        </div>
+    </div>
+
+
+    <!-- //javascript part for fetching and searching part -->
+
+   <script>
+
+
+
+    const apiKey ='6905f87b6e264e84a6934521241510';
+    const apiUrl="https://api.weatherapi.com/v1/current.json?q=";
+
+    const searchBox= document.querySelector(".search input");
+    const searchBtn= document.querySelector(".search button");
+    const wIcon= document.querySelector(".w-icon");
+    
+async function checkWeather(city){
+    const response =await fetch(apiUrl + city + `&key=${apiKey}`);
+    var data= await response.json();
+    
+    
+
+    document.querySelector(".city").innerHTML = data.location.name;
+    document.querySelector(".coun").innerHTML = data.location.country;
+    document.querySelector(".temp").innerHTML = data.current.temp_c +"°C";
+    document.querySelector(".feellike").innerHTML = "Feels Like " + data.current.feelslike_c;
+    document.querySelector(".time").innerHTML = data.current.last_updated;
+    document.querySelector(".wind").innerHTML = data.current.wind_kph;
+    document.querySelector(".hu").innerHTML = data.current.humidity;
+    document.querySelector(".oo").innerHTML =data.current.condition.text;
+
+
+    if(data.current.condition.text=="Sunny")
+    {
+        wIcon.src="images/sunny.png"
+
+    }
+    
+    if(data.current.condition.text&&"Partly Cloudy"&&"Overcast")
+    {
+        wIcon.src="images/partly_cloudy_day.png"
+
+    }
+    if(data.current.condition.text=="Rainy")
+    {
+        wIcon.src="images/rainy.png"
+
+    }
+    if(data.current.condition.text=="Mist")
+    {
+        wIcon.src="images/mist.png"
+
+    }
+    else
+    {
+        wIcon.src="images/cloud.png"
+
+    }
+
+
+
+    document.querySelector(".weather").style.display="block";
+   
+}
+
+searchBtn.addEventListener("click", ()=>{
+
+    
+    checkWeather(searchBox.value);
+
+   
+   
+    
+})
+
+
+checkWeather();
+
+
+   </script> 
+</body>
+</html>
