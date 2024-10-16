@@ -48,9 +48,13 @@ html {
   }
 /* search part design */
 
+.main{
+  display: flex;
+}
+
 .card{
     width: 95%;
-    max-width:470px;
+    max-width:500px;
     background-color: #7270aa;
     background-image: linear-gradient(rgb(196, 154, 204),#7270aa);
     color: #fff;
@@ -147,48 +151,22 @@ html {
     user-select: none;
   }
   
-  /* The actual popup */
-  .popup .popuptext {
-    visibility: hidden;
-    width: 160px;
-    background-color: #555;
+  .car1{
+    background-color: #9c5a81;
     color: #fff;
+    margin-top: 40px;
+    padding: 20px;
+    text-align: left;
+    border-radius: 20px;
+    display: flex;
+  }
+
+  .car2{
+    background-color: #9c5a81;
+    color: #fff;
+    margin-top: 40px;
+    padding: 20px;
     text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -80px;
+    border-radius: 20px;
   }
-  
-  /* Popup arrow */
-  .popup .popuptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-  }
-  
-  /* Toggle this class - hide and show the popup */
-  .popup .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
-  }
-  
-  /* Add animation (fade in the popup) */
-  @-webkit-keyframes fadeIn {
-    from {opacity: 0;} 
-    to {opacity: 1;}
-  }
-  
-  @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-  }
+ 

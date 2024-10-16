@@ -20,6 +20,7 @@
 
 <!-- //weather search design -->
 
+<div class="main">
     <div class="card">
         <div class="search">
             <input types="text" placeholder="Enter city name" spellcheck="false">
@@ -64,8 +65,20 @@
 
          </div>
 
+         <h1 class="car2">This Week</h1>
+        <div class="forcast">
+            
+           
+            
+        </div>
+       
+
         </div>
     </div>
+
+
+
+</div>
 
 
     <!-- //javascript part for fetching and searching part -->
@@ -75,7 +88,7 @@
 
 
     const apiKey ='6905f87b6e264e84a6934521241510';
-    const apiUrl="https://api.weatherapi.com/v1/current.json?q=";
+    const apiUrl="https://api.weatherapi.com/v1/forecast.json?days=7&aqi=no&alerts=no&q=";
 
     const searchBox= document.querySelector(".search input");
     const searchBtn= document.querySelector(".search button");
@@ -84,6 +97,11 @@
 async function checkWeather(city){
     const response =await fetch(apiUrl + city + `&key=${apiKey}`);
     var data= await response.json();
+
+    
+  
+  
+ 
     
     
 
@@ -95,6 +113,7 @@ async function checkWeather(city){
     document.querySelector(".wind").innerHTML = data.current.wind_kph;
     document.querySelector(".hu").innerHTML = data.current.humidity;
     document.querySelector(".oo").innerHTML =data.current.condition.text;
+
 
 
     if(data.current.condition.text=="Sunny")
@@ -124,9 +143,41 @@ async function checkWeather(city){
 
     }
 
-
+    
 
     document.querySelector(".weather").style.display="block";
+
+    
+    data.forecast.forecastday.forEach((we)=>{
+        let div=document.createElement("div");
+
+        div.innerHTML+=`
+       
+        
+        <div class="car1">
+
+            
+           <div>
+             <p > ${we.date}</p>
+            <h1>${we.day.condition.text}</h1>
+              <h1>${we.day.avgtemp_c}°C</h1>
+              <small> Wind <small> ${we.day.avgvis_km} </small> km/h</small>
+                <small>Humidity <small> ${we.day.avghumidity}</small> %</small>
+            
+    
+            </div>
+            <div>
+
+                
+                <div/>
+            
+            
+            <div>`;
+        document.querySelector(".forcast").insertAdjacentElement('beforeend',div)
+
+
+
+    })
    
 }
 
